@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario WhatsApp</title>
+</head>
+<body>
+
+<h2>Formulario WhatsApp</h2>
+
+<form id="whatsappForm">
+  <label for="nombre">Nombre:</label><br>
+  <input type="text" id="nombre" name="nombre"><br>
+  <label for="apellido">Apellido:</label><br>
+  <input type="text" id="apellido" name="apellido"><br>
+  <label for="dni">Número de DNI:</label><br>
+  <input type="text" id="dni" name="dni"><br>
+  <label for="telefono">Número de teléfono:</label><br>
+  <input type="text" id="telefono" name="telefono"><br>
+  <label for="ganador">Ganador del partido:</label><br>
+  <input type="text" id="ganador" name="ganador"><br>
+  <label for="puntos_ganador">Puntos del ganador:</label><br>
+  <input type="text" id="puntos_ganador" name="puntos_ganador"><br>
+  <label for="perdedor">Perdedor del partido:</label><br>
+  <input type="text" id="perdedor" name="perdedor"><br>
+  <label for="puntos_perdedor">Puntos del perdedor:</label><br>
+  <input type="text" id="puntos_perdedor" name="puntos_perdedor"><br>
+  <label for="numero_partido">Fue el partido N°:</label><br>
+  <input type="text" id="numero_partido" name="numero_partido"><br><br>
+  <button type="button" onclick="enviarWhatsApp()">Enviar a WhatsApp</button>
+</form>
+
+<script>
+function enviarWhatsApp() {
+  var nombre = document.getElementById("nombre").value;
+  var apellido = document.getElementById("apellido").value;
+  var dni = document.getElementById("dni").value;
+  var telefono = document.getElementById("telefono").value;
+  var ganador = document.getElementById("ganador").value;
+  var puntosGanador = document.getElementById("puntos_ganador").value;
+  var perdedor = document.getElementById("perdedor").value;
+  var puntosPerdedor = document.getElementById("puntos_perdedor").value;
+  var numeroPartido = document.getElementById("numero_partido").value;
+
+  var mensaje = "Nombre: " + nombre + "\n" +
+                "Apellido: " + apellido + "\n" +
+                "Número de DNI: " + dni + "\n" +
+                "Número de teléfono: " + telefono + "\n" +
+                "Ganador del partido: " + ganador + "\n" +
+                "Puntos del ganador: " + puntosGanador + "\n" +
+                "Perdedor del partido: " + perdedor + "\n" +
+                "Puntos del perdedor: " + puntosPerdedor + "\n" +
+                "Fue el partido N°: " + numeroPartido;
+
+  var whatsappURL = "https://wa.me/2664212722?text=" + encodeURIComponent(mensaje);
+  window.open(whatsappURL);
+}
+</script>
+
+</body>
+</html>
